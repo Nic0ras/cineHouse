@@ -3,12 +3,14 @@
 que queremos exportar, dentro de um objeto.
 */
 
+const fs = require('fs');
 
 module.exports = {
     
     
-    adicionarFilme: function (filme, catalogo) {
-    catalogo.push(filme)
+    adicionarFilme: function (filme, catalogo, nomeArquivo) {
+    catalogo.push(filme)// além de alterar o arquivo
+    fs.writeFileSync(nomeArquivo, JSON.stringify(catalogo, null, 2))//trambém rescreeve o arquivo JSON com o novo array de catalogo 
     return 'Filme adicionado com sucesso!'
 },
 
